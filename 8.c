@@ -22,17 +22,17 @@ int main()
         int choice;
         while(1){
                
-                printf("n                MENU                             n");
-                printf("n 1.Create     n");
-                printf("n 2.Display    n");
-                printf("n 3.Insert at the beginning    n");
-                printf("n 4.Insert at the end  n");
-                printf("n 5.Insert at specified position       n");
-                printf("n 6.Delete from beginning      n");
-                printf("n 7.Delete from the end        n");
-                printf("n 8.Delete from specified position     n");
-                printf("n 9.Exit       n");
-                printf("Enter your choice:t");
+                printf("\n                MENU                             \n");
+                printf("\n 1.Create     \n");
+                printf("\n 2.Display    \n");
+                printf("\n 3.Insert at the beginning    \n");
+                printf("\n 4.Insert at the end  \n");
+                printf("\n 5.Insert at specified position       \n");
+                printf("\n 6.Delete from beginning      \n");
+                printf("\n 7.Delete from the end        \n");
+                printf("\n 8.Delete from specified position     \n");
+                printf("\n 9.Exit       \n");
+                printf("Enter your choice:\t");
                 scanf("%d",&choice);
                 switch(choice)
                 {
@@ -66,7 +66,7 @@ int main()
                                         break;
                              
                         default:
-                                        printf("n Wrong Choice:n");
+                                        printf("\n Wrong Choice:\n");
                                             main();
                                         break;
                 }
@@ -79,10 +79,10 @@ void create()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("nOut of Memory Space:n");
+                printf("\nOut of Memory Space:\n");
                 exit(0);
         }
-        printf("nEnter the data value for the node:t");
+        printf("\nEnter the data value for the node:\t");
         scanf("%d",&temp->info);
         temp->next=NULL;
         if(start==NULL)
@@ -104,16 +104,16 @@ void display()
         struct node *ptr;
         if(start==NULL)
         {
-                printf("nList is empty:n");
+                printf("\nList is empty:\n");
                 return;
         }
         else
         {
                 ptr=start;
-                printf("nThe List elements are:n");
+                printf("\nThe List elements are:\n");
                 while(ptr!=NULL)
                 {
-                        printf("%dt",ptr->info );
+                        printf("%d\t",ptr->info );
                         ptr=ptr->next ;
                 }
         }
@@ -124,10 +124,10 @@ void insert_begin()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("nOut of Memory Space:n");
+                printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("nEnter the data value for the node:t" );
+        printf("\nEnter the data value for the node:\t" );
         scanf("%d",&temp->info);
         temp->next =NULL;
         if(start==NULL)
@@ -146,10 +146,10 @@ void insert_end()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("nOut of Memory Space:n");
+                printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("nEnter the data value for the node:t" );
+        printf("\nEnter the data value for the node:\t" );
         scanf("%d",&temp->info );
         temp->next =NULL;
         if(start==NULL)
@@ -173,12 +173,12 @@ void insert_pos()
         temp=(struct node *)malloc(sizeof(struct node));
         if(temp==NULL)
         {
-                printf("nOut of Memory Space:n");
+                printf("\nOut of Memory Space:\n");
                 return;
         }
-        printf("nEnter the position for the new node to be inserted:t");
+        printf("\nEnter the position for the new node to be inserted:\t");
         scanf("%d",&pos);
-        printf("nEnter the data value of the node:t");
+        printf("\nEnter the data value of the node:\t");
         scanf("%d",&temp->info) ;
   
         temp->next=NULL;
@@ -192,7 +192,7 @@ void insert_pos()
                 for(i=0,ptr=start;i<pos-1;i++) { ptr=ptr->next;
                         if(ptr==NULL)
                         {
-                                printf("nPosition not found:[Handle with care]n");
+                                printf("\nPosition not found:[Handle with care]\n");
                                 return;
                         }
                 }
@@ -205,14 +205,14 @@ void delete_begin()
         struct node *ptr;
         if(ptr==NULL)
         {
-                printf("nList is Empty:n");
+                printf("\nList is Empty:\n");
                 return;
         }
         else
         {
                 ptr=start;
                 start=start->next ;
-                printf("nThe deleted element is :%dt",ptr->info);
+                printf("\nThe deleted element is :%d\t",ptr->info);
                 free(ptr);
         }
 }
@@ -221,14 +221,14 @@ void delete_end()
         struct node *temp,*ptr;
         if(start==NULL)
         {
-                printf("nList is Empty:");
+                printf("\nList is Empty:");
                 exit(0);
         }
         else if(start->next ==NULL)
         {
                 ptr=start;
                 start=NULL;
-                printf("nThe deleted element is:%dt",ptr->info);
+                printf("\nThe deleted element is:%d\t",ptr->info);
                 free(ptr);
         }
         else
@@ -240,7 +240,7 @@ void delete_end()
                         ptr=ptr->next;
                 }
                 temp->next=NULL;
-                printf("nThe deleted element is:%dt",ptr->info);
+                printf("\nThe deleted element is:%d\t",ptr->info);
                 free(ptr);
         }
 }
@@ -250,18 +250,18 @@ void delete_pos()
         struct node *temp,*ptr;
         if(start==NULL)
         {
-                printf("nThe List is Empty:n");
+                printf("\nThe List is Empty:\n");
                 exit(0);
         }
         else
         {
-                printf("nEnter the position of the node to be deleted:t");
+                printf("\nEnter the position of the node to be deleted:\t");
                 scanf("%d",&pos);
                 if(pos==0)
                 {
                         ptr=start;
                         start=start->next ;
-                        printf("nThe deleted element is:%dt",ptr->info  );
+                        printf("\nThe deleted element is:%d\t",ptr->info  );
                         free(ptr);
                 }
                 else
@@ -270,12 +270,12 @@ void delete_pos()
                         for(i=0;i<pos;i++) { temp=ptr; ptr=ptr->next ;
                                 if(ptr==NULL)
                                 {
-                                        printf("nPosition not Found:n");
+                                        printf("\nPosition not Found:\n");
                                         return;
                                 }
                         }
                         temp->next =ptr->next ;
-                        printf("nThe deleted element is:%dt",ptr->info );
+                        printf("\nThe deleted element is:%d\t",ptr->info );
                         free(ptr);
                 }
         }
